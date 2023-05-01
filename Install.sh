@@ -16,8 +16,6 @@ confirm()
 if confirm "Are you sure to install the program ?"; then
     sudo apt-get update & sudo apt-get full-upgrade -y
     echo "The software will install..."
-    sudo apt-get install xserver-xorg-input-evdev xinput-calibrator xorg unclutter chromium-browser -y
-    sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
     sudo apt-get install xorg freerdp2-x11 -y
     sudo rm /home/pi/.profile
     sudo rm /home/pi/.xinitrc
