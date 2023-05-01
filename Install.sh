@@ -20,8 +20,8 @@ if confirm "Are you sure to install the program ?"; then
     sudo rm /home/pi/.profile
     sudo rm /home/pi/.xinitrc
     cd /home/pi/
-    sudo wget .profile
-    sudo wget 
+    sudo wget https://github.com/felix068/Raspi_RDP_Client/raw/main/profile -O '.profile'
+    sudo wget https://github.com/felix068/Raspi_RDP_Client/raw/main/xinitrc -O '.xinitrc'
     cd /
     sudo wget https://raw.githubusercontent.com/felix068/Working_Raspi_Kiosk/main/st.sh
     echo -e "\033[31m Setting your rdp server hostname \033[0m"
