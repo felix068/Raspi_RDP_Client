@@ -18,22 +18,31 @@ if confirm "Are you sure to install the program ?"; then
     echo "The software will install..."
     sudo apt-get install xserver-xorg-input-evdev xinput-calibrator xorg unclutter chromium-browser -y
     sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
+    sudo apt-get install xorg freerdp2-x11 -y
     sudo rm /home/pi/.profile
     sudo rm /home/pi/.xinitrc
     cd /home/pi/
-    sudo wget https://raw.githubusercontent.com/felix068/Working_Raspi_Kiosk/main/.profile
-    sudo wget https://raw.githubusercontent.com/felix068/Working_Raspi_Kiosk/main/.xinitrc
+    sudo wget .profile
+    sudo wget 
     cd /
     sudo wget https://raw.githubusercontent.com/felix068/Working_Raspi_Kiosk/main/st.sh
-    echo -e "\033[31m Setting your config file \033[0m"
+    echo -e "\033[31m Setting your rdp server hostname \033[0m"
     sleep 3
-    sudo nano /boot/config.txt
-    echo -e "\033[31m Setting Xorg (X11) \033[0m"
+    sudo mkdir /rdp/
+    sudo touch /rdp/hostname
+    sudo nano /rdp/hostname
+    echo -e "\033[31m Setting your rdp server username \033[0m"
     sleep 3
-    sudo nano /etc/X11/xorg.conf.d/98-dietpi-disable_dpms.conf
-    echo -e "\033[31m Setting your screen resolution and chromium argument \033[0m"
+    sudo touch /rdp/username
+    sudo nano /rdp/username
+    echo -e "\033[31m Setting your rdp server password \033[0m"
     sleep 3
-    sudo nano /home/pi/.xinitrc
+    sudo touch /rdp/password
+    sudo nano /rdp/password
+    echo -e "\033[31m Setting your rdp server port \033[0m"
+    sleep 3
+    sudo echo "3389" > /rdp/port
+    sudo nano /rdp/port
     echo -e "\033[31m The operation was done ! \033[0m"
     cd /home/pi/
 else
