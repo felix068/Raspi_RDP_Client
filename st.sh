@@ -1,2 +1,2 @@
-sleep 0
+sleep 5
 startx
